@@ -1,0 +1,22 @@
+apiVersion: v2
+name: workadventure
+version: 1.0.0-beta
+description: A Helm chart for Kubernetes
+type: application
+home: https://github.com/gmoirod/helm-workadventure
+sources:
+  - https://github.com/gmoirod/helm-workadventure
+  - https://github.com/thecodingmachine/workadventure
+
+dependencies:
+    # Redis is mandatory. If you do not have one, use this dependency.
+  - name: redis
+    version: ~16.11.2
+    repository: https://charts.bitnami.com/bitnami
+    condition: redis.enabled
+
+maintainers:
+  - name: Guillaume Moirod
+    url: https://github.com/gmoirod
+
+appVersion: v1.15.6

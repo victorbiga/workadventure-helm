@@ -1,0 +1,176 @@
+global:
+  imageRegistry: "docker.io"
+  imagePullSecrets: []
+  storageClass: ""
+  #clusterDomain: "cluster.local"
+
+domain: "workadventure.minikube"
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# Enable TLS and give a secret containing TLS cert/key
+ingress:
+  enabled: true
+  annotations: {}
+  tls:
+    enabled: true
+    existingSecret: ""
+
+# TODO : Give a way to use Cloud LoadBalancers by allowing to use NodePort and Loadbalancer services
+# service:
+#   type: ""
+
+env:
+  startRoomUrl: "/_/global/thecodingmachine.github.io/workadventure-map-starter-kit/map.tmj"
+  timezone: "Europe/Paris"
+
+# REDIS Helm parameters
+# https://artifacthub.io/packages/helm/bitnami/redis#parameters
+redis:
+  enabled: true
+  architecture: "standalone"
+  auth:
+    enabled: false
+  serviceAccount:
+    create: false
+    name: ""
+
+podAnnotations: {}
+
+
+
+############################
+############################
+
+
+
+
+
+# Default values for workadventure.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+# Env
+# env:
+#   secretKey: "tempSecretKeyNeedsToChange"
+#   adminApiToken: "123"
+#   jitsiIss: ""
+#   jitsiUrl: "meet.jit.si"
+#   secretJitsiKey: ""
+#   jitsiPrivateMode: false
+#   debugMode: false
+
+#################### workadventure-back ####################
+back:
+
+  # autoscaling:
+  #   enabled: true
+  #   minReplicas: 1
+  #   maxReplicas: 100
+  #   targetCPUUtilizationPercentage: 80
+  #   targetMemoryUtilizationPercentage: 80
+
+#################### workadventure-back ####################
+
+#################### workadventure-front ####################
+front:
+  # # Env front
+  # env:
+  #   turnServer: "turn:coturn.workadventu.re:443,turns:coturn.workadventu.re:443"
+  #   turnUser: "workadventure"
+  #   turnPassword: "WorkAdventure123"
+  #   startRoomUniverse: "global"
+  #   startRoomPath: "/Floor0/floor0.json"
+
+  # autoscaling:
+  #   enabled: true
+  #   minReplicas: 1
+  #   maxReplicas: 100
+  #   targetCPUUtilizationPercentage: 80
+  #   targetMemoryUtilizationPercentage: 80
+
+#################### workadventure-front ####################
+
+
+#################### workadventure-pusher ####################
+pusher:
+  # autoscaling:
+  #   enabled: true
+  #   minReplicas: 1
+  #   maxReplicas: 100
+  #   targetCPUUtilizationPercentage: 80
+  #   targetMemoryUtilizationPercentage: 80
+#################### workadventure-pusher ####################
+
+
+#################### workadventure-uploader ####################
+uploader:
+  # autoscaling:
+  #   enabled: true
+  #   minReplicas: 1
+  #   maxReplicas: 100
+  #   targetCPUUtilizationPercentage: 80
+  #   targetMemoryUtilizationPercentage: 80
+
+#################### workadventure-uploader ####################
+
+
+#################### workadventure-maps ####################
+maps:
+
+  # autoscaling:
+  #   enabled: true
+  #   minReplicas: 1
+  #   maxReplicas: 100
+  #   targetCPUUtilizationPercentage: 80
+  #   targetMemoryUtilizationPercentage: 80
+
+#################### workadventure-maps ####################
+
+
+
+
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "workadventure.map-storage.labels" . | nindent 4 }}
+  name: {{ include "workadventure.map-storage.name" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "workadventure.map-storage.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "workadventure.map-storage.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "workadventure.serviceAccountName" . }}
+      containers:
+        - name: map-storage
+          image: {{ .Values.global.imageRegistry }}/thecodingmachine/workadventure-map-storage:{{ .Chart.AppVersion }}
+          env:
+            - name: PROMETHEUS_AUTHORIZATION_TOKEN
+              value: ""
+            - name: AUTHENTICATION_STRATEGY
+              value: "Basic"
+            - name: AUTHENTICATION_USER
+              value: "john.doe"
+            - name: AUTHENTICATION_PASSWORD
+              value: "password"
+          ports:
+            - containerPort: 3000
+            - containerPort: 50053
+          resources: {}
+      restartPolicy: Always
