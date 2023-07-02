@@ -2,9 +2,9 @@ global:
   imageRegistry: "docker.io"
   imagePullSecrets: []
   storageClass: ""
-  #clusterDomain: "cluster.local"
+  clusterDomain: "cluster.local"
 
-domain: "workadventure.minikube"
+domain: "workadventure.victor.internal"
 
 nameOverride: ""
 fullnameOverride: ""
