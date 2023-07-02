@@ -4,6 +4,8 @@ metadata:
   name: workadventure
   namespace: workadventure
 spec:
+  gateways:
+    - istio-system/gateway
   hosts:
     - chat.workadventure.minikube
     - play.workadventure.minikube
