@@ -51,11 +51,3 @@ spec:
           match:
             - uri:
                 prefix: /
-  tls:
-    - hosts:
-        - chat.workadventure.minikube
-        - play.workadventure.minikube
-        - icon.workadventure.minikube
-        - map-storage.workadventure.minikube
-        - ejabberd.workadventure.minikube
-
