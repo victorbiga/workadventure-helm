@@ -4,7 +4,7 @@ global:
   storageClass: ""
   clusterDomain: "cluster.local"
 
-domain: "workadventure.victor.internal"
+domain: "workadventure.cluster.local"
 
 nameOverride: ""
 fullnameOverride: ""
