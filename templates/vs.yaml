@@ -7,11 +7,11 @@ spec:
   gateways:
     - istio-system/gateway
   hosts:
-    - chat.workadventure.minikube
-    - play.workadventure.minikube
-    - icon.workadventure.minikube
-    - map-storage.workadventure.minikube
-    - ejabberd.workadventure.minikube
+    - chat.workadventure.victor.internal
+    - play.workadventure.victor.internal
+    - icon.workadventure.victor.internal
+    - map-storage.workadventure.victor.internal
+    - ejabberd.workadventure.victor.internal
   http:
     - route:
         - destination:
